@@ -26,11 +26,11 @@ public:
     }
 
     void Hit() {
-        hit_++;
+        hit_.fetch_add(1, std::memory_order_relaxed);
     }
 
     void Miss() {
-        miss_++;
+        miss_.fetch_add(1, std::memory_order_relaxed);
     }
 
 private: 
